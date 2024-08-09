@@ -1,0 +1,30 @@
+.tileList {
+  background-color: #ededed;
+}
+
+.tile {
+  border: 2px solid #70aeff;
+  /* background-color: #8dbeffb0; */
+  border-radius: 5px;
+  padding: 3px;
+  box-shadow: 0.8px 4px 18px 0 #0c27274d;
+}
+
+.gradient-10 {
+  color: #14af36;
+}
+
+/* #calendar,
+.fc-list {
+  background-color: #ededed;
+} */
+
+/* .tile {
+  color: #7cc1f0;
+} */
+
+/* #news-component .component-action {
+  border-radius: 5px;
+  border: 2px solid #024e8b;
+  background-color: #ededed;
+} */

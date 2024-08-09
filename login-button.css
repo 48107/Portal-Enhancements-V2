@@ -1,0 +1,31 @@
+#auto {
+  text-align: center;
+  width: 100%;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  color: darkorchid;
+  border: 2px solid darkorchid;
+  font-weight: bold;
+}
+
+#auto:hover,
+#auto:active {
+    background-color: darkorchid;
+    color: white;
+}
+
+#username,
+#password {
+    border-radius: 3px;
+    background-color: rgb(212, 255, 248);
+    border: none;
+}
+
+#username:hover,
+#username:active,
+#username:focus,
+#password:hover,
+#password:active,
+#password:focus {
+    border: 0.125rem solid rgb(0, 162, 255);
+}
