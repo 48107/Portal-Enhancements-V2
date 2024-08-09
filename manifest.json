@@ -20,5 +20,8 @@
       "css": ["homepage.css"],
       "js": ["homepage.js"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
