@@ -78,3 +78,14 @@ for (let i = 0; i < infoList[1].children.length; i++) {
 
   infoItem.style.border = "2px solid " + colour; // Styles the border
 }
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    const infoList = document.getElementsByClassName("information-list"); 
+
+    for (let i = 0; i < infoList[1].children.length; i++) {
+        // Styling the cards
+        infoList[1].children[i].style.backgroundColor = "#FFFFFF";
+    }
+  }
+);
