@@ -6,14 +6,14 @@ function getResourceContent(fileName) {
   .then(resp => resp.json());
 }
 
-// Grabs JSON
+// Grabs JSON with JWT and then logs in automacitally
 getResourceContent("file.json").then(content => {
   jwt = content.jwt
   if (link == null) {
     window.location.replace(
       "https://skcportal.stkevins.vic.edu.au/api/session?jwt="+jwt
     );
-  } else {
+  } else { // For going back to previous page upon login rather than home
     window.location.replace(
       "https://skcportal.stkevins.vic.edu.au/api/session?redirect="+link+"&jwt="+jwt
     );

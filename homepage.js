@@ -61,7 +61,6 @@ for (let i = 0; i < tileList.length; i++) {
         tLI.length >=
       100
     ) {
-      console.log('VERY VERY BAD!!!!');
       tiles2[q].style.marginRight = (tileWidth * 0.02).toString() + '%';
     }
   }
@@ -69,11 +68,12 @@ for (let i = 0; i < tileList.length; i++) {
 }
 tiles[tiles.length - 1].style.marginRight = '0';
 
-// Initial Due Work Styling Setup for Cards
+// Function that styles the dueWorkCards
 async function dueWorkCards() {
-  const data = await chrome.storage.sync.get('options');
+  const data = await chrome.storage.sync.get('options'); // Gets previously set options from storage
   Object.assign(options, data.options);
-
+  
+  // Initial Due Work Styling Setup for Cards
   for (let i = 0; i < infoList[1].children.length; i++) {
     // Styling the cards
     infoList[1].children[i].style.backgroundColor = options.colour;
@@ -94,17 +94,16 @@ async function dueWorkCards() {
     const infoGradientIndex = infoItem
       .querySelector('span')
       .classList[0].replace(/\D/g, '');
-    // console.log(infoGradientIndex)
     const colour = GradientTable[infoGradientIndex];
 
-    infoItem.style.border = '2px solid ' + colour; // Styles the border
+    infoItem.style.border = '2px solid ' + colour; // Styles the border to match colour of time till due
   }
 }
 dueWorkCards();
 
-// Receives message to change due work background colour from popup
+
+// Listener to receive message to change due work background colour from popup
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log(request.greeting);
   const infoList = document.getElementsByClassName('information-list');
 
   for (let i = 0; i < infoList[1].children.length; i++) {
