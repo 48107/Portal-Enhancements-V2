@@ -1,0 +1,61 @@
+body {
+  background-color: #121212;
+  text-align: center;
+  min-width: 200px;
+  color: rgb(130, 53, 245);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+label {
+  padding-bottom: 1.2rem;
+  font-size: 15px;
+}
+
+.setting {
+  font-family: 'Fira Code', monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  padding-top: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+}
+
+.ddown {
+  margin-bottom: 0.5em;
+}
+
+.breakup {
+  margin-top: 0.8rem;
+}
+
+select {
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  color: #121212;
+  background-color: rgb(130, 53, 245);
+  border-radius: 7px;
+  padding: 7px;
+  min-width: 80px;
+  min-height: 25px;
+  border: 3px solid rgb(130, 53, 245);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+select:hover {
+  background-color: #121212;
+  color: rgb(130, 53, 245);
+}
+
+#colourPicker {
+  margin-bottom: 0.5rem;
+  margin-top: 0.4rem;
+}
