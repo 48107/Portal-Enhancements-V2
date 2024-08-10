@@ -7,10 +7,7 @@ async function sendMes(mes) {
 }
 
 // Listens for button click and passes it to a function that messages homepage to change
-document.getElementById('btn').addEventListener('click', function () {
-  sendMes({ greeting: '#000000' });
-});
-
-document.getElementById('btn2').addEventListener('click', function () {
-  sendMes({ greeting: '#FFFFFF' });
+const colourDropdown = document.getElementById('oolour');
+colourDropdown.addEventListener('change', function () {
+  sendMes({ greeting: colourDropdown.value });
 });
