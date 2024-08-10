@@ -1,3 +1,5 @@
+options = {};
+
 const tiles = document.getElementsByClassName('tile');
 const tileList = document.getElementsByClassName('tileList');
 
@@ -68,31 +70,39 @@ for (let i = 0; i < tileList.length; i++) {
 tiles[tiles.length - 1].style.marginRight = '0';
 
 // Initial Due Work Styling Setup for Cards
-for (let i = 0; i < infoList[1].children.length; i++) {
-  // Styling the cards
-  infoList[1].children[i].style.backgroundColor = '#8dbeffb0';
-  infoList[1].children[i].style.marginBottom = '0.6rem';
-  infoList[1].children[i].style.borderRadius = '5px';
-  infoList[1].children[i].style.border = '2px solid #70aeff';
-  infoList[1].children[i].style.boxShadow = '0.8px 4px 18px 0 #0c27274d';
+async function dueWorkCards() {
+  const data = await chrome.storage.sync.get('options');
+  Object.assign(options, data.options);
+
+  for (let i = 0; i < infoList[1].children.length; i++) {
+    // Styling the cards
+    infoList[1].children[i].style.backgroundColor = options.colour;
+    infoList[1].children[i].style.marginBottom = '0.6rem';
+    infoList[1].children[i].style.borderRadius = '5px';
+    infoList[1].children[i].style.border = '2px solid #70aeff';
+    infoList[1].children[i].style.boxShadow = '0.8px 4px 18px 0 #0c27274d';
+  }
+
+  // Removes background white from in-between cards
+  infoList[1].parentElement.style.backgroundColor = '#ededed';
+
+  // Due Work Border Styling
+  for (let i = 0; i < infoList[1].children.length; i++) {
+    const infoItem = infoList[1].children[i];
+
+    // Gets the border colour corresponding to time till due
+    const infoGradientIndex = infoItem
+      .querySelector('span')
+      .classList[0].replace(/\D/g, '');
+    // console.log(infoGradientIndex)
+    const colour = GradientTable[infoGradientIndex];
+
+    infoItem.style.border = '2px solid ' + colour; // Styles the border
+  }
 }
-// Removes background white from in-between cards
-infoList[1].parentElement.style.backgroundColor = '#ededed';
+dueWorkCards();
 
-// Due Work Border Styling
-for (let i = 0; i < infoList[1].children.length; i++) {
-  const infoItem = infoList[1].children[i];
-
-  // Gets the border colour corresponding to time till due
-  const infoGradientIndex = infoItem
-    .querySelector('span')
-    .classList[0].replace(/\D/g, '');
-  // console.log(infoGradientIndex)
-  const colour = GradientTable[infoGradientIndex];
-
-  infoItem.style.border = '2px solid ' + colour; // Styles the border
-}
-
+// Receives message to change due work background colour from popup
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log(request.greeting);
   const infoList = document.getElementsByClassName('information-list');
