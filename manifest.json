@@ -6,7 +6,7 @@
   "permissions": ["storage", "activeTab", "scripting"],
   "web_accessible_resources": [
     {
-      "resources": [ "resources/file.json" ],
+      "resources": [ "resources/file.json", "popup.html", "dynamicSet.js" ],
       "matches": [ "https://skcportal.stkevins.vic.edu.au/*" ]
     }
   ],
@@ -20,5 +20,8 @@
       "css": ["homepage.css"],
       "js": ["homepage.js"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
